@@ -1,0 +1,777 @@
+@charset "UTF-8";
+/* webfont:Poppins+Retro star */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.cdnfonts.com/css/retro-star');
+
+/* eric css reset start */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1.5;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* eric css reset end */
+
+/* 共用區 */
+* {
+    /* 不累加邊框與內距離 */
+    box-sizing: border-box;
+}
+
+body {
+    font-family:
+        /*西文*/
+        Poppins, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, Arial,
+        /*中文*/
+        "Noto Sans TC", "蘋方-繁", "PingFang TC", "黑體-繁", "Heiti TC", "微軟正黑體", "Microsoft JhengHei", sans-serif;
+    /* 全站預設的文字顏色 */
+    color: var(--purple);
+    /* 隱藏視窗的橫向卷軸 */
+    overflow-x: hidden;
+    /* 背景圖片重複 */
+    background-image: url(../img/pcBG-400.jpg);
+    background-repeat: repeat;
+    background-attachment: fixed;
+}
+
+img {
+    /* 設定為可以指定寬高 */
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    display: block;
+    /* 設定超連結的顏色 */
+    color: var(--orange);
+    /* 取消預設的底線裝飾 */
+    text-decoration: none;
+}
+
+/* 變數區 */
+:root {
+    /* 主色調 */
+    --orange: #DD4200;
+    --purple: #5400DD;
+    --aqua: #00DDD3;
+    /* 輔助色調 */
+    --pink: #FEC1C6;
+    --yellow: #DD9F00;
+    --green: #F0FFCF;
+    /* 灰階 */
+    --deepgrey: #82807D;
+    --dark: #202020;
+}
+
+div {
+    /* 不累加邊框啥的 */
+    box-sizing: border-box;
+}
+
+/* 自訂滾動軸顏色 */
+/* 整體色 */
+::-webkit-scrollbar {
+    background-color: var(--purple);
+}
+
+/* 上下按鈕 */
+::-webkit-scrollbar-button {
+    background-color: var(--purple);
+    height: 8px;
+}
+
+/* 拖曳手柄 */
+::-webkit-scrollbar-thumb {
+    background-color: var(--pink);
+    border-radius: 99px;
+}
+
+/* 自訂滾動條未被按鈕蓋到的軌道顏色 */
+::-webkit-scrollbar-track-piece {
+    background-color: var(--purple);
+}
+
+/* 滾動條的底角，水平和垂直滾動條相交的地方，通常是右下角 */
+::-webkit-scrollbar-corner {
+    background-color: var(--purple);
+}
+
+.wrapper {
+    padding: 0 120px;
+}
+
+/* 手機 */
+@media (max-width:667px) {
+    .wrapper {
+        padding: 0;
+    }
+}
+
+/* loading */
+.loadingwrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #FEC1C6;
+    z-index: 9999;
+}
+
+#loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -44px;
+    margin-left: -44px;
+}
+
+/* 左 */
+.leftSlogan {
+    position: fixed;
+    top: 0;
+    left: 120px;
+    display: flex;
+    height: 100vh;
+}
+
+.leftSlogan .slogan {
+    display: block;
+    margin-right: 88px;
+}
+
+/* RWD斷點 */
+/* ipad pro */
+@media (max-width:1366px) {
+    .leftSlogan .slogan {
+        margin-right: 56px;
+    }
+}
+
+/* ipad */
+@media (max-width:1024px) {
+    .leftSlogan .slogan {
+        visibility: hidden;
+    }
+
+    .leftSlogan .indexD {
+        visibility: hidden;
+    }
+}
+
+/* 手機 */
+@media (max-width:667px) {
+    .leftSlogan {
+        visibility: hidden;
+    }
+}
+
+/* 右 */
+.menu {
+    position: fixed;
+    top: 0;
+    right: 120px;
+    height: 100vh;
+    justify-items: right;
+}
+
+.menu .list-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu .list-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    right: 30px;
+    margin: 96px 0 0 0;
+    line-height: 1;
+}
+
+.menu .list-item img {
+    margin: 16px;
+}
+
+.menu a {
+    font-family: "Retro Star";
+    font-size: 28px;
+    margin: 16px 0;
+}
+
+.menu a:hover {
+    color: var(--yellow);
+    transition-duration: .4s;
+}
+
+/* menu highlight */
+.menu a.active {
+    color: var(--purple);
+    transition-duration: .4s;
+}
+
+/* RWD斷點 */
+/* ipad */
+@media (max-width:1024px) {
+    .menu {
+        visibility: hidden;
+    }
+}
+
+/* 手機 */
+@media (max-width:667px) {
+    .menu {
+        visibility: hidden;
+    }
+}
+
+
+/* 手機才顯示的MENU */
+.mb-menu {
+    display: none;
+    /* 水平置中 */
+    justify-content: center;
+    /* 垂直置中 */
+    align-items: center;
+}
+
+.mb-menu .list-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mb-menu .list-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    margin: 96px auto 0 auto;
+    line-height: 1;
+}
+
+.mb-menu img {
+    margin: 16px;
+}
+
+.mb-menu a {
+    font-family: "Retro Star";
+    font-size: 28px;
+    margin: 16px 0;
+}
+
+.mb-menu a:hover {
+    color: var(--purple);
+}
+
+/* RWD */
+/* ipad */
+@media (max-width:1024px) {
+    .mb-menu {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        /* 水平置中 */
+        justify-content: center;
+        /* 垂直置中 */
+        align-items: center;
+    }
+}
+
+/* 手機 */
+@media (max-width:667px) {
+    .mb-menu {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        /* 水平置中 */
+        justify-content: center;
+        /* 垂直置中 */
+        align-items: center;
+    }
+}
+
+/* content */
+.content {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.content>div {
+    display: flex;
+    align-items: center;
+}
+
+/* 正中央 */
+#container {
+    z-index: 900;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 50%;
+    margin: 0 0 0 -195px;
+}
+
+#container section {
+    width: 390px;
+    height: 844px;
+    margin: 0 auto;
+}
+
+/* 手機 */
+@media (max-width:667px) {
+    #container {
+        width: 100%;
+        left: 0;
+        margin: 0;
+    }
+
+    #container section {
+        width: 100%;
+        margin: 0;
+    }
+}
+
+/* HOME */
+#home {
+    background-color: var(--orange);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#home .baseDonuts {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+/* 手機 */
+@media (max-width:667px) {
+    #home {
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    #home .baseDonuts {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        object-fit: contain;
+    }
+}
+
+#home .homeContent {
+    position: absolute;
+    top: 215px;
+}
+
+#home .homeContent .open {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 350px;
+}
+
+/* 中間甜甜圈動態 */
+.rotate-ani {
+    animation: rotate-donut 2s ease-in-out infinite alternate;
+}
+
+@keyframes rotate-donut {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(15deg);
+    }
+}
+
+.scroll {
+    position: absolute;
+    top: 504px;
+    left: 350px;
+}
+
+/* 手機 */
+@media (max-width:667px) {
+    .scroll {
+        position: absolute;
+        top: 11.75%;
+        left: 90%;
+    }
+}
+
+
+/* DONUTS */
+#flavors {
+    background-color: var(--yellow);
+    background-image: url(../img/p-cross.png);
+    background-repeat: repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#flavors div {
+    margin-bottom: 16px;
+}
+
+#flavors .btn {
+    border-radius: 99px;
+    background-color: var(--purple);
+    border: 6px solid var(--yellow);
+    color: var(--green);
+    padding: 8px 24px;
+}
+
+#flavors .btn:hover {
+    border-radius: 99px;
+    background-color: var(--purple);
+    border: 6px solid var(--purple);
+    color: var(--green);
+    padding: 8px 24px;
+}
+
+#flavors .btn:active {
+    border-radius: 99px;
+    background-color: var(--orange);
+    border: 6px solid var(--purple);
+    color: var(--green);
+    padding: 8px 24px;
+}
+
+#flavors p {
+    color: var(--green);
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+
+/* RWD */
+/* ipad pro */
+@media (max-width:1366px) {
+    #flavors .btn:hover {
+        border-radius: 99px;
+        background-color: var(--purple);
+        border: 6px solid var(--purple);
+        color: var(--green);
+        padding: 8px 24px;
+    }
+}
+
+/* STORE */
+#store {
+    background-color: var(--pink);
+    background-image: url(../img/p-sprinkle-60.png);
+    background-repeat: repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#store .title {
+    margin-bottom: 24px;
+}
+
+#store .addtime {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#store .add {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#store .add div {
+    padding: 8px;
+}
+
+#store .add p {
+    width: 259px;
+    font-weight: 600;
+}
+
+#store .time {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+#store .time div {
+    padding: 8px;
+}
+
+.map {
+    margin-bottom: 40px;
+}
+
+/* FAQ */
+#FAQ {
+    background-color: var(--purple);
+    background-image: url(../img/p-dot.png);
+    background-repeat: repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#FAQ .title {
+    display: flex;
+    align-items: center;
+    margin: 16px auto;
+}
+
+#FAQ img {
+    padding: 16px 8px;
+}
+
+/*FAQ-box */
+.accordion-container {
+    width: 350px;
+    max-width: 600px;
+}
+
+.accordion-item {
+    background-color: transparent;
+    border-radius: 16px;
+    margin-bottom: 16px;
+}
+
+.accordion-header {
+    /* 不知為啥文字沒辦法自動套用 */
+    font-family: "poppins";
+    font-size: 16px;
+    font-weight: 600;
+
+    background-color: var(--yellow);
+    color: var(--purple);
+    padding: 8px 20px;
+    border: none;
+    width: 100%;
+    height: auto;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 16px 16px 0 0;
+    transition: background-color 0.3s ease;
+}
+
+.accordion-header p {
+    width: 290px;
+}
+
+.accordion-header:hover {
+    background-color: var(--pink);
+}
+
+.accordion-content {
+    /* js active時加圓角 */
+    text-align: justify;
+    background-color: var(--green);
+    overflow: hidden;
+    padding: 0 20px;
+    max-height: 0;
+    transition: max-height 0.3s ease;
+}
+
+.accordion-content p {
+    margin: 20px 0;
+
+}
+
+.icon {
+    /* 不知為啥被壓扁 */
+    border: 1px solid transparent;
+    transition: transform 0.3s ease;
+}
+
+.active .icon {
+    transform: rotate(45deg);
+}
+
+#FAQ #gotop {
+    cursor: pointer;
+}
+
+
+.footer {
+    width: 390px;
+    height: 60px;
+    font-size: 12px;
+    letter-spacing: 4px;
+    background-color: var(--purple);
+    border-top: 1px solid var(--green);
+    color: var(--green);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* 手機 */
+@media (max-width:667px) {
+    .footer {
+        width: 100%;
+    }
+}
+
+
+/* ---------------------------------------------------- */
+
+/* RWD斷點 */
+/* 桌機 */
+@media (min-width:1367px) {}
+
+/* ipad pro */
+@media (max-width:1366px) {}
+
+/* ipad */
+@media (max-width:1024px) {}
+
+/* 手機 */
+@media (max-width:667px) {}

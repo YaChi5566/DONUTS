@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8' />
+    <title>map</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+
+    <!-- mapbox API -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css' rel='stylesheet' />
+
+    <!-- style -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- 設定地圖顯示的尺寸 -->
+    <div id='map' style='width: 100%; height: 200px;'></div>
+    <script>
+        // 導入mapbox樣式
+        mapboxgl.accessToken = 'pk.eyJ1IjoieWFjaGk1NTY2IiwiYSI6ImNsdnFubXZ1eTA3N24ybG51MWw5NWN0cjkifQ.C60924T4jbBzR8L3EC71fg';
+        const map = new mapboxgl.Map({
+            container: 'map', // container ID
+            style: 'mapbox://styles/yachi5566/clw7do2mz02nj01qr874l3jwm', // style URL
+            center: [121.5255, 25.0425], // starting position [lng, lat]
+            zoom: 15, // starting zoom
+        });
+
+        // 點擊pin彈出視窗
+        map.on('click', (event) => {
+            // If the user clicked on one of your markers, get its information.
+            const features = map.queryRenderedFeatures(event.point, {
+                layers: ['donuts'] // replace with your layer name
+            });
+            if (!features.length) {
+                return;
+            }
+            const feature = features[0];
+
+            layers: ['donuts']
+            /* 
+            Create a popup, specify its options 
+            and properties, and add it to the map.
+            */
+            const popup = new mapboxgl.Popup({ offset: [0, -15] })
+                .setLngLat(feature.geometry.coordinates)
+                .setHTML(
+                    // title=>店名, description=>地址
+                    `<h3>${feature.properties.title}</h3>`
+                )
+                .addTo(map);
+
+        });
+        // hover時鼠標變成手型
+        map.on('mouseenter', ['donuts'], () => {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', ['donuts'], () => {
+            map.getCanvas().style.cursor = '';
+        });
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,780 @@
+@charset "UTF-8";
+/* webfont:Poppins+Retro star */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.cdnfonts.com/css/retro-star');
+
+/* eric css reset start */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1.5;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* eric css reset end */
+
+/* 共用區 */
+* {
+    /* 不累加邊框與內距離 */
+    box-sizing: border-box;
+}
+
+body {
+    font-family:
+        /*西文*/
+        Poppins, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, Arial,
+        /*中文*/
+        "Noto Sans TC", "蘋方-繁", "PingFang TC", "黑體-繁", "Heiti TC", "微軟正黑體", "Microsoft JhengHei", sans-serif;
+    /* 全站預設的文字顏色 */
+    color: var(--purple);
+    /* 隱藏視窗的橫向卷軸 */
+    overflow-x: hidden;
+    /* 背景圖片重複 */
+    background-image: url(../img/pcBG-400.jpg);
+    background-repeat: repeat;
+    background-attachment: fixed;
+    position: relative;
+}
+
+/* 讓footer置底 */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.wrapper {
+    min-height: 100vh;
+}
+
+.wrapperInner {
+    /* 設定padding-top+bottom後就可以在內容高度不夠時讓footer置底+不產生卷軸 */
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+img {
+    /* 設定為可以指定寬高 */
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    display: block;
+    /* 設定超連結的顏色 */
+    color: var(--purple);
+    /* 取消預設的底線裝飾 */
+    text-decoration: none;
+}
+
+/* 變數區 */
+:root {
+    /* 主色調 */
+    --orange: #DD4200;
+    --purple: #5400DD;
+    --aqua: #00DDD3;
+    /* 輔助色調 */
+    --pink: #FEC1C6;
+    --yellow: #DD9F00;
+    --green: #F0FFCF;
+    /* 灰階 */
+    --deepgrey: #82807D;
+    --dark: #202020;
+    /* 透明色調 */
+    --alpha-purple: rgba(85, 0, 221, 0.7);
+}
+
+div {
+    box-sizing: border-box;
+}
+
+/* 自訂滾動軸顏色 */
+/* 整體色 */
+::-webkit-scrollbar {
+    background-color: var(--purple);
+}
+
+/* 上下按鈕 */
+::-webkit-scrollbar-button {
+    background-color: var(--purple);
+    height: 8px;
+}
+
+/* 拖曳手柄 */
+::-webkit-scrollbar-thumb {
+    background-color: var(--pink);
+    border-radius: 99px;
+}
+
+/* 自訂滾動條未被按鈕蓋到的軌道顏色 */
+::-webkit-scrollbar-track-piece {
+    background-color: var(--purple);
+}
+
+/* 滾動條的底角，水平和垂直滾動條相交的地方，通常是右下角 */
+::-webkit-scrollbar-corner {
+    background-color: var(--purple);
+}
+
+/* header */
+.topbar {
+    width: 100%;
+    height: 60px;
+    background-color: var(--purple);
+    position: fixed;
+    top: 0;
+    z-index: 999;
+}
+
+/* 開關 */
+.switchW3 {
+    position: relative;
+    display: inline-block;
+    /* 定位 */
+    top: 16px;
+    left: 48.5%;
+    width: 48px;
+    height: 24px;
+}
+
+/* Hide default HTML checkbox */
+.switchW3 input {
+    display: none;
+}
+
+/* The slider */
+.switchW3 .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--purple);
+    border: 2px solid var(--green);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.switchW3 .slider:before {
+    position: absolute;
+    content: "";
+    /* 圓球尺寸 */
+    height: 23px;
+    width: 23px;
+    /* 定位 */
+    left: -1px;
+    bottom: -1px;
+    background-color: var(--green);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+/* 滑開的顏色 */
+.switchW3 input:checked+.slider {
+    background-color: var(--orange);
+}
+
+/* 右滑停的位置 */
+.switchW3 input:checked+.slider:before {
+    -webkit-transform: translateX(24px);
+    -ms-transform: translateX(24px);
+    transform: translateX(24px);
+}
+
+/* 滑桿圓角 */
+.switchW3 .slider.round {
+    border-radius: 99px;
+}
+
+.switchW3 .slider.round:before {
+    border-radius: 99px;
+}
+
+/* 手機 */
+@media (max-width:768px) {
+    .switchW3 {
+        position: relative;
+        display: inline-block;
+        top: 16px;
+        left: 43.5%;
+        width: 48px;
+        height: 24px;
+    }
+}
+
+/* switch MENU */
+.menuBox {
+    position: absolute;
+    background-color: var(--alpha-purple);
+    width: 100%;
+    height: 100vh;
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 900;
+}
+
+.menu {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -15px;
+}
+
+.menu .list-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu .list-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    margin: 96px auto 0 auto;
+    line-height: 1;
+}
+
+.menu img {
+    margin: 16px;
+}
+
+.menu a {
+    font-family: "Retro Star";
+    font-size: 28px;
+    margin: 16px 0;
+    color: var(--orange);
+}
+
+.menu a:hover {
+    color: var(--yellow);
+    transition-duration: .4s;
+}
+
+.menu a:active {
+    color: var(--purple);
+}
+
+/* 讓flavors呈現active顏色 */
+.menu .focus {
+    /* 不能被選取 */
+    pointer-events: none;
+    cursor: default;
+    color: var(--purple);
+}
+
+/* RWD */
+/* ipad pro */
+@media (max-width:1365px) {
+    .menu a:hover {
+        color: var(--purple);
+        transition-duration: 0.2s;
+    }
+
+    .menu a:active {
+        color: var(--purple);
+        transition-duration: 0.2s;
+    }
+}
+
+/* 麵包屑 */
+.wrap {
+    width: 100%;
+    border-bottom: 1px solid var(--purple);
+    background-color: var(--aqua);
+    position: fixed;
+    top: 60px;
+    z-index: 800;
+}
+
+.breadcrumb {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.breadcrumb div {
+    margin: 0 8px;
+}
+
+.breadcrumb a:hover {
+    color: var(--green);
+    transition-duration: .2s;
+}
+
+.breadcrumb a:active {
+    color: var(--green);
+}
+
+.breadcrumb .focus {
+    pointer-events: none;
+    cursor: default;
+}
+/* ipad pro */
+@media (max-width:1365px) {
+    .breadcrumb a:hover {
+        color: var(--green);
+        transition-duration: 0;
+    }
+    
+    .breadcrumb a:active {
+        color: var(--green);
+    }
+}
+
+/* 產品item */
+/* grid排版參考：https://juejin.cn/post/7141942889247948836 */
+.main {
+    position: relative;
+    padding: 40px 120px;
+    align-items: center;
+}
+
+.all-items {
+    display: grid;
+    /* 欄 網格數量 */
+    grid-template-columns: repeat(4, 25%);
+    /* 列 網格數量 */
+    grid-template-rows: repeat(2, 50%);
+    /* 對齊方式 */
+    justify-items: center;
+    align-items: center;
+    margin: 64px auto;
+}
+
+/* 設定甜甜圈+袋子img重疊 */
+.all-items .all-donut {
+    display: block;
+    position: relative;
+    top: 0;
+    z-index: 1;
+}
+
+/* 袋子hover時，甜甜圈位移 */
+.all-items a:hover .all-donut {
+    top: -24px;
+    transition-duration: .4s;
+}
+
+.all-items .all-bag {
+    display: block;
+    position: relative;
+    bottom: 120px;
+    z-index: 2;
+}
+
+/* RWD斷點 */
+/* ipad pro */
+@media (max-width:1365px) {
+    .all-items {
+        display: grid;
+        /* 欄 網格數量 */
+        grid-template-columns: repeat(2, 50%);
+        /* 列 網格數量 */
+        grid-template-rows: repeat(4, 25%);
+        /* 對齊方式 */
+        justify-items: center;
+        align-items: center;
+        margin: 64px auto;
+    }
+
+    /* 袋子active時，甜甜圈位移 */
+    .all-items a:active .all-donut {
+        top: -24px;
+    }
+
+    .all-items .all-bag {
+        display: block;
+        position: relative;
+        bottom: 120px;
+        z-index: 2;
+    }
+}
+
+/* 手機 */
+@media (max-width:667px) {
+    .all-items {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* 設定img重疊 */
+    .all-items .all-donut {
+        display: block;
+        position: relative;
+        top: 16px;
+        z-index: 1;
+    }
+
+    .all-items .all-bag {
+        display: block;
+        position: relative;
+        bottom: 84px;
+        z-index: 2;
+    }
+}
+
+/*-- slider箭頭樣式css */
+/*-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" /> */
+.slick-prev,
+.slick-next {
+    width: 48px;
+    height: 48px;
+    border: transparent;
+    background-color: transparent;
+    color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 5;
+    cursor: pointer;
+    transition: transform .4s, background-image .4s;
+}
+
+.slick-prev {
+    margin-left: 20px;
+    background-image: url(../img/icon-prev.png);
+
+}
+
+.slick-next {
+    margin-right: 20px;
+    background-image: url(../img/icon-next.png);
+}
+
+.slick-prev:hover {
+    background-image: url(../img/icon-prev-active.png);
+}
+
+.slick-next:hover {
+    background-image: url(../img/icon-next-active.png);
+}
+
+.slick-prev:active {
+    transform: scale(0.8);
+}
+
+.slick-next:active {
+    transform: scale(0.8);
+}
+
+/* RWD斷點 */
+/* ipad pro */
+@media (max-width:1365px) {
+    .slick-prev,
+    .slick-next {
+        transition: transform .2s, background-image .2s;
+    }
+
+    .slick-prev {
+        margin-left: 20px;
+        background-image: url(../img/icon-up.png);
+    }
+
+    .slick-next {
+        margin-right: 20px;
+        background-image: url(../img/icon-down.png);
+    }
+
+    .slick-prev:hover {
+        background-image: url(../img/icon-up-active.png);
+        transform: scale(1);
+    }
+
+    .slick-next:hover {
+        background-image: url(../img/icon-down-active.png);
+        transform: scale(1);
+    }
+
+    .slick-prev:active {
+        background-image: url(../img/icon-up-active.png);
+        transform: scale(1);
+    }
+
+    .slick-next:active {
+        background-image: url(../img/icon-down-active.png);
+        transform: scale(1);
+    }
+}
+
+/* slick輪播 */
+.slick-slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 160px auto;
+}
+
+/* 輪播物件的容器 */
+.slick-list {
+    /* 設定寬度減少壓縮箭頭的空間 */
+    width: 80%;
+    box-sizing: border-box;
+}
+
+.slick-slide {
+    /* 卡片之間的間距 */
+    margin: 24px 0;
+    transition: all .4s ease-in-out;
+}
+
+/* 桌機卡片 */
+.cardContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.itemTitle {
+    font-size: 18px;
+    font-weight: 700;
+    width: 310px;
+    height: auto;
+    background-color: var(--yellow);
+    color: var(--purple);
+    padding: 8px 20px;
+    text-align: center;
+    align-items: center;
+    border-radius: 16px 16px 0 0;
+}
+
+.itemContent {
+    width: 310px;
+    height: 160px;
+    text-align: justify;
+    background-color: var(--green);
+    border-radius: 0 0 16px 16px;
+    overflow: hidden;
+    padding: 0 20px;
+}
+
+.itemContent p {
+    margin: 20px 0;
+}
+
+/* RWD斷點 */
+/* ipad pro */
+@media (max-width:1365px) {
+
+    /* 轉垂直 */
+    .slick-slider {
+        margin: 88px auto;
+    }
+
+    /* 輪播物件的容器 */
+    .slick-list {
+        /* 設定寬度減少壓縮箭頭的空間 */
+        width: 50%;
+        box-sizing: border-box;
+    }
+
+    /* 卡片 */
+    .itemTitle {
+        width: 350px;
+        height: 370px;
+    }
+
+    .itemContent {
+        width: 350px;
+        height: 170px;
+    }
+}
+
+/* 手機 */
+@media (max-width:667px) {
+    .slick-list {
+        /* 設定寬度減少壓縮箭頭的空間 */
+        width: 65%;
+        box-sizing: border-box;
+    }
+
+    .slick-slider {
+        margin: 120px auto;
+    }
+
+    /* 縮小卡片 */
+    .itemTitle {
+        font-size: 16px;
+        font-weight: 700;
+        width: 240px;
+        height: 264px;
+    }
+
+    .itemContent {
+        font-size: 14px;
+        width: 240px;
+        height: 168px;
+    }
+}
+
+
+/* footer */
+/* 置底參考：https://tso1158687.github.io/blog/2018/03/15/fix-footer-trick/ */
+.footer {
+    width: 100%;
+    height: 60px;
+    margin-top: -60px;
+    font-size: 12px;
+    letter-spacing: 4px;
+    background-color: var(--purple);
+    border-top: 1px solid var(--green);
+    color: var(--green);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+
+/* ------------------------------------------------------ */
+
+/* RWD斷點 */
+/* 桌機 */
+@media (min-width:1366px) {}
+
+/* ipad pro */
+@media (max-width:1365px) {}
+
+/* 手機 */
+@media (max-width:768px) {}
+
+/* @media (max-width:667px) {} */

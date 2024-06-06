@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DONUTS</title>
+
+    <!-- AOS css -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- 自訂css -->
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+
+<body>
+
+    <!-- loading -->
+    <div class="loadingwrapper">
+        <div id="loading">
+            <img src="./animation/loading.gif" alt="">
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <div class="content">
+
+            <!-- 左slogan -->
+            <div class="leftSlogan">
+                <span class="slogan"><img src="./img/sloganIndex.png" alt=""></span>
+                <span class="indexD"> <img src="./img/indexDonuts.png" alt=""></span>
+            </div>
+
+            <!-- 正中間整條 -->
+            <div id="container">
+                <!-- main -->
+                <section id="home">
+                    <div class="baseDonuts">
+                        <img src="./img/baseDonut01.png" alt="">
+                        <img class="rotate-ani" src="./img/baseDonut02.png" alt="">
+                        <img src="./img/baseDonut03.png" alt="">
+                    </div>
+
+                    <div class="homeContent">
+                        <span class="open"><img src="./img/open.png" alt=""></span>
+                        <span class="slogan"><img src="./img/indexSlogan.png" alt=""></span>
+                    </div>
+
+                    <!-- scroll lottie動態 -->
+                    <div class="scroll">
+                        <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+                            type="module">
+                            </script>
+                        <dotlottie-player src="https://lottie.host/03892ca0-2a6b-4c98-b2f2-367895c607ea/7aG1mwvnj3.json"
+                            background="transparent" speed="1" style="width: 100%; height: 268px;" loop autoplay>
+                        </dotlottie-player>
+                    </div>
+                </section>
+
+                <!-- menu(手機版才顯示) -->
+                <section class="mb-menu">
+                    <div class="list-box">
+                        <div class="menu-base">
+                            <img src="./img/menuBase.png" alt="">
+                        </div>
+                        <div class="list-item">
+                            <img src="./img/menuStar.png" alt="">
+                            <img src="./img/dots-orange.png" alt="">
+                            <a href="#home">HOME</a>
+                            <a href="#flavors">FLAVORS</a>
+                            <a href="#store">STORE</a>
+                            <a href="#FAQ">FAQ</a>
+                            <img src="./img/dots-orange.png" alt="">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 連結到商品頁 -->
+                <section id="flavors">
+                    <div><img src="./img/halfCircleUp.png" alt=""></div>
+                    <div><img src="./img/Bite01.png" alt=""></div>
+                    <div data-aos="zoom-in"><img src="./img/bombDonut.png" alt=""></div>
+                    <div><img src="./img/Bite02.png" alt=""></div>
+                    <div class="btn" data-aos="fade-up"><a href="./flavors.html">
+                            <p>Check All Flavors!!</p>
+                        </a></div>
+                </section>
+
+                <!-- 商店map -->
+                <section id="store">
+                    <div class="title"><img src="./img/titleStore.png" alt=""></div>
+
+                    <div class="addtime" data-aos="flip-up">
+                        <div class="add">
+                            <div><img src="./img/icon-pin.png" alt=""></div>
+                            <div>
+                                <p>No.321, Sec. 1, Jinan Rd., Zhongzheng District, Taipei City</p>
+                            </div>
+                        </div>
+
+                        <div class="time">
+                            <div><img src="./img/icon-time.png" alt=""></div>
+                            <div><img src="./img/time01.png" alt=""></div>
+                            <div><img src="./img/timeWave.png" alt=""></div>
+                            <div><img src="./img/time02.png" alt=""></div>
+                        </div>
+                    </div>
+
+                    <div class="map">
+                        <iframe width='350px' height='200px' src="./map.html" frameborder="0"></iframe>
+                    </div>
+
+                    <div data-aos="flip-left"><img src="./img/storeSlogan.png" alt=""></div>
+                </section>
+
+                <!-- FAQ https://codepen.io/Hematiali/pen/LYqeWZy -->
+                <section id="FAQ">
+                    <div class="title">
+                        <div><img src="./img/FAQdot.svg" alt=""></div>
+                        <div><img src="./img/titleFAQ.png" alt=""></div>
+                        <div><img src="./img/FAQdot.svg" alt=""></div>
+                    </div>
+
+                    <div class="accordion-container">
+
+                        <!-- Q1 -->
+                        <div class="accordion-item" data-aos="fade-down">
+                            <button class="accordion-header">
+                                <p>What flavors of donuts do you offer?</p><span class="icon"><img
+                                        src="./img/icon-open.png" alt=""></span>
+                            </button>
+                            <div class="accordion-content">
+                                <p>We offer a variety of flavors, including caramel chocolate, strawberry, peanut, and
+                                    seasonal specials.</p>
+                            </div>
+                        </div>
+
+                        <!-- Q2 -->
+                        <div class="accordion-item" data-aos="fade-down">
+                            <button class="accordion-header">
+                                <p>Do you offer delivery service?</p>
+                                <span class="icon"><img src="./img/icon-open.png" alt=""></span>
+                            </button>
+                            <div class="accordion-content">
+                                <p>Yes, you can order online or by phone, and we'll deliver to your specified address
+                                    within our delivery range.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Q3 -->
+                        <div class="accordion-item" data-aos="fade-down">
+                            <button class="accordion-header">
+                                <p>Can customers pre-order donuts in advance?</p>
+                                <span class="icon"><img src="./img/icon-open.png" alt=""></span>
+                            </button>
+                            <div class="accordion-content">
+                                <p>Absolutely! Customers can pre-order donuts online or by phone.</p>
+                            </div>
+                        </div>
+
+                        <!-- Q4 -->
+                        <div class="accordion-item" data-aos="fade-down">
+                            <button class="accordion-header">
+                                <p>How should donuts be reheated?</p>
+                                <span class="icon"><img src="./img/icon-open.png" alt=""></span>
+                            </button>
+                            <div class="accordion-content">
+                                <p>
+                                    Reheat donuts in microwave for 10-15 seconds or in oven at 350°F for 5-10 minutes
+                                    wrapped in foil. Avoid overheating. Enjoy!
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Q5 -->
+                        <div class="accordion-item" data-aos="fade-down">
+                            <button class="accordion-header">
+                                <p>How should donuts be stored?</p>
+                                <span class="icon"><img src="./img/icon-open.png" alt=""></span>
+                            </button>
+                            <div class="accordion-content">
+                                <p>
+                                    Store donuts in an airtight container at room temperature for up to two days or
+                                    freeze them for up to three months. Thaw at room temperature or reheat before
+                                    enjoying.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- gotop -->
+                    <div id="gotop" data-aos="fade-up">
+                        <img src="./img/goTop.png" alt="">
+                    </div>
+                </section>
+
+                <!-- footer -->
+                <div class="footer">
+                    <p>© 2024 DONUT.</p>
+                </div>
+            </div>
+
+            <!-- 右menu -->
+            <div class="menu">
+                <div class="list-box">
+                    <div class="menu-base">
+                        <img src="./img/menuBase.png" alt="">
+                    </div>
+                    <div class="list-item">
+                        <img src="./img/menuStar.png" alt="">
+                        <img src="./img/dots-orange.png" alt="">
+                        <a href="#home">HOME</a>
+                        <a href="#flavors">FLAVORS</a>
+                        <a href="#store">STORE</a>
+                        <a href="#FAQ">FAQ</a>
+                        <img src="./img/dots-orange.png" alt="">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- js -->
+    <!-- 啟用jquery原生碼 -->
+    <script src="./js/jquery-3.7.1.min.js"></script>
+    <!-- lottie -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"
+        type="text/javascript"></script>
+    <!-- AOS js -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <!-- 自訂js -->
+    <script src="./js/script.js"></script>
+
+</body>
+
+</html>
